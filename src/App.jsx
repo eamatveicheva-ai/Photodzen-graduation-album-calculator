@@ -579,9 +579,9 @@ export default function App() {
                       ))}
                     </tr>
                     <tr>
-                      <td colSpan={5} style={{padding:"6px 8px 3px",fontSize:11,color:C.c2,fontWeight:500,borderBottom:`1px solid ${C.border}`}}>
+                      <td colSpan={5} className="sticky-col" style={{padding:"6px 8px 3px",fontSize:11,color:C.c2,fontWeight:500,borderBottom:`1px solid ${C.border}`,background:C.card,width:"100%"}}>
                         <TT text={T.tariff_photos}>Количество фотографий, включённых в тариф</TT>
-                        <span style={{color:C.dim,marginLeft:6}}>/ ретушь ✓</span>
+                        <div style={{color:C.dim,fontSize:10,marginTop:2}}>ретушь вкл/выкл</div>
                       </td>
                     </tr>
                     {PHOTO_ROWS.map(row=>(
