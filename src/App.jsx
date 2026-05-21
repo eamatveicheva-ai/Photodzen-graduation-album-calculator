@@ -49,6 +49,12 @@ const CSS = `
     .hide-mobile{display:none!important;}
   }
 
+  .sticky-col {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #141720;
+  }
   @media(max-width:768px){
     .two-col{grid-template-columns:1fr!important;}
     .left-panel,.right-panel{min-width:0!important;}
@@ -410,7 +416,7 @@ export default function App() {
       <header className="np" style={{background:C.surface,borderBottom:`1px solid ${C.border}`,padding:"18px 20px 16px"}}>
         <div style={{maxWidth:1120,margin:"0 auto"}}>
           <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:14}}>
-            <Logo size={38}/>
+            <img src="/logo.png" alt="ФотоДзен" style={{width:38,height:38,borderRadius:10,objectFit:"contain"}}/>
             <div>
               <div style={{fontSize:22,fontWeight:700,background:GRADT,WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>ФотоДзен</div>
               <div style={{fontSize:10,color:C.dim,letterSpacing:".1em",textTransform:"uppercase"}}>Калькулятор выпускных фотоальбомов</div>
@@ -543,7 +549,7 @@ export default function App() {
                 <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
                   <thead>
                     <tr>
-                      <th style={{textAlign:"left",padding:"5px 8px",color:C.muted,fontWeight:400,borderBottom:`1px solid ${C.border}`}}>Параметр</th>
+                      <th className="sticky-col" style={{textAlign:"left",padding:"5px 8px",color:C.muted,fontWeight:400,borderBottom:`1px solid ${C.border}`}}>Параметр</th>
                       {tariffs.map((t,i)=>(
                         <th key={i} style={{padding:"5px 8px",color:C.c1,fontWeight:500,borderBottom:`1px solid ${C.border}`,textAlign:"center",minWidth:78}}>{t.name}</th>
                       ))}
@@ -652,7 +658,7 @@ export default function App() {
                   <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
                     <thead>
                       <tr>
-                        <th style={{textAlign:"left",padding:"6px 10px",color:C.muted,fontWeight:400,borderBottom:`1px solid ${C.border}`}}>Показатель</th>
+                        <th className="sticky-col" style={{textAlign:"left",padding:"6px 10px",color:C.muted,fontWeight:400,borderBottom:`1px solid ${C.border}`}}>Показатель</th>
                         {tariffs.map((t,i)=>(
                           <th key={i} style={{padding:"6px 10px",color:qtys[i]>0?C.c1:C.dim,fontWeight:500,borderBottom:`1px solid ${C.border}`,textAlign:"right"}}>
                             {t.name}{qtys[i]>0?` ×${qtys[i]}`:""}
@@ -671,7 +677,7 @@ export default function App() {
                         {label:"Маржинальность 1 альбома (факт)", vals:calc.prAD.map(p=>fmt(p,sym))},
                       ].map((row,ri)=>(
                         <tr key={ri} style={{background:row.accent?`${C.c1}08`:""}}>
-                          <td style={{padding:"6px 10px",color:row.accent?C.c1:row.bold?C.text:C.muted,fontWeight:row.bold||row.accent?600:400,borderBottom:`1px solid ${C.border}22`}} className="pm"><TT text={row.tip}>{row.label}</TT></td>
+                          <td className={`sticky-col pm`} style={{padding:"6px 10px",color:row.accent?C.c1:row.bold?C.text:C.muted,fontWeight:row.bold||row.accent?600:400,borderBottom:`1px solid ${C.border}22`,background:row.accent?`${C.c1}08`:C.card}}><TT text={row.tip}>{row.label}</TT></td>
                           {row.vals.map((v,i)=>(
                             <td key={i} align="right" style={{padding:"6px 10px",color:row.accent?C.c1:row.muted?C.muted:C.text,fontWeight:row.bold||row.accent?600:400,borderBottom:`1px solid ${C.border}22`,opacity:qtys[i]===0?.4:1}} className={row.accent?"pa":"pm"}>{v}</td>
                           ))}
@@ -789,7 +795,7 @@ export default function App() {
             </>) : (
               <Card>
                 <div style={{textAlign:"center",padding:"36px 0",color:C.dim}}>
-                  <Logo size={48}/><br/><br/>
+                  <img src="/logo.png" alt="ФотоДзен" style={{width:48,height:48,borderRadius:12,objectFit:"contain"}}/><br/><br/>
                   <div style={{fontSize:14}}>Укажи количество альбомов по тарифам — и увидишь полный расчёт</div>
                 </div>
               </Card>
