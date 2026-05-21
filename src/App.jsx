@@ -557,7 +557,7 @@ export default function App() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`}}>Разворотов всего</td>
+                      <td className="sticky-col" style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`,minWidth:130,background:C.card}}>Разворотов всего</td>
                       {tariffs.map((t,i)=>(
                         <td key={i} style={{padding:"3px 5px",textAlign:"center",borderBottom:`1px solid ${C.border}33`}}>
                           <input type="number" value={t.rev_all} min={1}
@@ -567,7 +567,7 @@ export default function App() {
                       ))}
                     </tr>
                     <tr>
-                      <td style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`}}>
+                      <td className="sticky-col" style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`,minWidth:130,background:C.card}}>
                         <TT text={T.rev_ind}>Инд. разворотов</TT>
                       </td>
                       {tariffs.map((t,i)=>(
@@ -586,7 +586,7 @@ export default function App() {
                     </tr>
                     {PHOTO_ROWS.map(row=>(
                       <tr key={row.key}>
-                        <td style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`}}>
+                        <td className="sticky-col" style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`,minWidth:130,background:C.card}}>
                           <div>{row.label}</div>
                           <div style={{fontSize:10,color:C.dim}}>{row.retLbl}</div>
                         </td>
