@@ -578,12 +578,25 @@ export default function App() {
                         </td>
                       ))}
                     </tr>
+                  </tbody>
+                </table>
+              </div>
+              {/* Subheader between two table sections */}
+              <div style={{padding:"6px 8px 4px",fontSize:11,color:C.c2,fontWeight:500,borderBottom:`1px solid ${C.border}`,background:C.card,marginTop:0}}>
+                <TT text={T.tariff_photos}>Количество фотографий, включённых в тариф</TT>
+                <div style={{color:C.dim,fontSize:10,marginTop:2}}>ретушь вкл/выкл</div>
+              </div>
+              <div style={{overflowX:"auto"}}>
+                <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+                  <thead>
                     <tr>
-                      <td colSpan={5} className="sticky-col" style={{padding:"6px 8px 3px",fontSize:11,color:C.c2,fontWeight:500,borderBottom:`1px solid ${C.border}`,background:C.card,width:"100%"}}>
-                        <TT text={T.tariff_photos}>Количество фотографий, включённых в тариф</TT>
-                        <div style={{color:C.dim,fontSize:10,marginTop:2}}>ретушь вкл/выкл</div>
-                      </td>
+                      <th className="sticky-col" style={{padding:"5px 8px",background:C.card,borderBottom:`1px solid ${C.border}`}}></th>
+                      {tariffs.map((t,i)=>(
+                        <th key={i} style={{padding:"5px 8px",color:C.c1,fontWeight:500,borderBottom:`1px solid ${C.border}`,textAlign:"center",minWidth:78}}>{t.name}</th>
+                      ))}
                     </tr>
+                  </thead>
+                  <tbody>
                     {PHOTO_ROWS.map(row=>(
                       <tr key={row.key}>
                         <td className="sticky-col" style={{padding:"4px 8px",color:C.muted,borderBottom:`1px solid ${C.border}33`,minWidth:130,background:C.card}}>
